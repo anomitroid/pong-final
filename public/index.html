@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Multiplayer Pong</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="menu">
+        <button id="createRoomBtn">Create Room</button>
+        <div id="joinRoomContainer">
+            <input type="text" id="roomIdInput" placeholder="Enter Room ID">
+            <button id="joinRoomBtn">Join Room</button>
+        </div>
+    </div>
+    <div id="game-container" style="display: none;">
+        <canvas id="pongCanvas"></canvas>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/models/GameModel.js"></script>
+    <script src="js/views/GameView.js"></script>
+    <script src="js/controllers/GameController.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

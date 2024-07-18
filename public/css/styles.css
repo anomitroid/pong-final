@@ -1,0 +1,49 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+canvas {
+    border: 2px solid #000;
+}
+
+#menu {
+    text-align: center;
+}
+
+#menu button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#joinRoomContainer {
+    margin-top: 20px;
+}
+
+#roomIdInput {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#game-container {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pongCanvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
