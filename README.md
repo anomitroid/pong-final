@@ -5,6 +5,7 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 ![image](https://github.com/user-attachments/assets/5177da34-d52c-4cf3-b725-ede378cf8e51)
 
 
+
 ## Table of Contents
 
 - [Features](#features)
@@ -17,6 +18,8 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 - [Contributing](#contributing)
 - [License](#license)
 
+
+
 ## Features
 
 - Real-time multiplayer gameplay
@@ -24,6 +27,7 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 - Responsive canvas rendering
 - Client-side prediction for smooth gameplay
 - Full and delta state updates for optimized network usage
+
 
 
 ## Prerequisites
@@ -39,6 +43,7 @@ You can check your current versions by running:
 node --version
 npm --version
 ```
+
 
 
 ## Installation
@@ -165,6 +170,7 @@ npm --version
     directory.
 
 
+
 ## Usage
 
 To start the game server:
@@ -196,12 +202,13 @@ To start the game server:
     ![image](https://github.com/user-attachments/assets/e0b7747d-9b90-4717-a65c-c97f468f5407)
    
 13. Send the room-id to the other person playing the game. This other user should paste the room-id in the given input box and click on "Join Room".
-14. The game will start
+14. The game will start.
 15. Players will see something like this (this is a game being played on the same device in different windows):
     
     ![image](https://github.com/user-attachments/assets/70f042c5-e34b-4ec3-85fd-86d50924324f)
 
 16. Enjoy!
+
 
 
 ## Game Rules
@@ -267,6 +274,7 @@ To start the game server:
 - If a player disconnects, the game stops and returns to the 'waiting' state.
 
 Remember, positioning your paddle correctly is key to success. Good luck, and enjoy the game!
+
 
 
 ## Technologies Used
@@ -342,3 +350,32 @@ This multiplayer Pong game leverages a variety of modern web technologies to cre
 This tech stack allows for a responsive, real-time multiplayer experience while maintaining efficiency in data transfer and processing.
 
 
+
+## Contributing
+
+Contributions to improve the game are welcome. Please follow these steps:
+
+1. Fork the repository
+2. Clone your forked repository.
+   ```bash
+   git clone https://github.com/anomitroid/pong-final.git
+3. Create a new branch
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. Make your changes and commit them with a descriptive commit message:
+   ```bash
+   git add .
+   git commit -m "Add a concise description of your changes"
+   ```
+5. Push your changes to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+6. Open a pull request on the original repository.
+
+Before submitting a pull request, please ensure:
+- Your code follows the project's coding style.
+- You've added comments to explain complex logic.
+- You've updated the README if you've added new features or changed functionality.
+- All existing tests pass, and you've added new tests for your features if applicable.
