@@ -13,6 +13,7 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 - [Installation](#installation)
 - [Usage](#usage)
 - [Game Rules](#game-rules)
+- [Technologies Used](#technologies-used)
 - [File Structure](#file-structure)
 - [How It Works](#how-it-works)
 - [Contributing](#contributing)
@@ -88,7 +89,7 @@ npm --version
    └── README.md
    ```
 6. Install the required dependencies: (`npm init -y` followed by `npm install`)
-7. Inside `server` you should find a `node-modules` directory.
+7. Inside `server` you should find a `node_modules` directory.
 
    
 ### If you want to create your own files instead of running the files in this project, follow the following steps:
@@ -165,7 +166,7 @@ npm --version
     npm init -y
     npm install express socket.io uuid
     ```
-19. After this command, your final file structure should be exactly similar to `pong-final` with just 1 directory extra inside `server-side` in `your-project`. This is the `node-modules` 
+19. After this command, your final file structure should be exactly similar to `pong-final` with just 1 directory extra inside `server-side` in `your-project`. This is the `node_modules` 
     directory.
 
 
@@ -299,6 +300,10 @@ This multiplayer Pong game leverages a variety of modern web technologies to cre
 - **Purpose**: Generates unique identifiers
 - **Usage**: Creates unique room IDs for game sessions
 
+ #### Nodemon
+- **Purpose**: Monitor for any changes in your source and automatically restart the server
+- **Usage**: Removes the repetitive task of restarting the server every time a change is made in the code 
+
 ### Frontend
 
 #### HTML5
@@ -347,6 +352,144 @@ This multiplayer Pong game leverages a variety of modern web technologies to cre
 - The server runs a game loop at 120 ticks per second for precise game mechanics.
 
 This tech stack allows for a responsive, real-time multiplayer experience while maintaining efficiency in data transfer and processing.
+
+
+
+## How It Works
+
+The Multiplayer Pong game is built on a client-server architecture using Node.js and Socket.IO for real-time communication. Here's a detailed breakdown of how the game functions:
+
+### Server-Side Architecture
+
+1. **Express Server Setup (`server.js`)**
+   - Initializes an Express application.
+   - Creates an HTTP server using the Express app.
+   - Sets up Socket.IO to work with the HTTP server.
+   - Serves static files from the `public` directory.
+
+2. **Room Management**
+   - Uses a `Map` to store active game rooms.
+   - Each room is identified by a unique UUID.
+   - Handles room creation and joining logic.
+
+3. **Game Model (`server/models/GameModel.js`)**
+   - Represents the game state, including player positions, ball position, and scores.
+   - Implements game logic such as ball movement and collision detection.
+   - Provides methods for updating the game state and resetting the ball.
+
+4. **Game Controller (`server/controllers/GameController.js`)**
+   - Manages the game loop, running at 120 ticks per second.
+   - Handles player connections and disconnections.
+   - Updates the game state and sends updates to clients.
+   - Implements both full state and delta state updates for efficiency.
+
+### Client-Side Architecture
+
+1. **Main Application (`public/js/main.js`)**
+   - Initializes the Socket.IO connection.
+   - Handles UI interactions (creating/joining rooms).
+   - Sets up the game canvas and initializes game components.
+
+2. **Game Model (`public/js/models/GameModel.js`)**
+   - Mirrors the server-side game state.
+   - Implements client-side prediction for smooth gameplay between server updates.
+
+3. **Game View (`public/js/views/GameView.js`)**
+   - Renders the game state on an HTML5 Canvas.
+   - Handles responsive scaling of the game area.
+
+4. **Game Controller (`public/js/controllers/GameController.js`)**
+   - Manages user input (mouse/touch events for paddle movement).
+   - Communicates with the server via Socket.IO.
+   - Updates the client-side game model and triggers view updates.
+
+### Networking and State Synchronization
+
+1. **Connection Establishment**
+   - When a client connects, Socket.IO establishes a WebSocket connection.
+   - The server assigns the client to a room (either new or existing).
+
+2. **Game State Updates**
+   - The server sends two types of updates:
+     a. Full State Updates: Complete game state, sent periodically.
+     b. Delta Updates: Only changed data, sent more frequently.
+   - The client applies these updates to its local game model.
+
+3. **Client-Side Prediction**
+   - Between server updates, the client predicts game state changes.
+   - This prediction is corrected when new server data arrives, ensuring smooth gameplay.
+
+4. **Input Handling**
+   - Player inputs (paddle movements) are immediately applied client-side.
+   - Inputs are also sent to the server, which validates and applies them.
+
+### Game Loop
+
+1. **Server-Side**
+   - Runs at 120 ticks per second.
+   - Updates ball position and checks for collisions.
+   - Processes any pending player inputs.
+   - Sends state updates to clients.
+
+2. **Client-Side**
+   - Runs on each animation frame (typically 60 FPS).
+   - Applies any pending server updates.
+   - Predicts game state based on last known state and time elapsed.
+   - Renders the current game state.
+
+### Collision Detection and Scoring
+
+1. **Ball-Wall Collisions**
+   - Detected when the ball reaches the top or bottom of the play area.
+   - The ball's vertical direction is reversed.
+
+2. **Ball-Paddle Collisions**
+   - Checked when the ball is within the x-coordinate range of a paddle.
+   - If the ball's y-coordinate aligns with the paddle, its horizontal direction is reversed.
+
+3. **Scoring**
+   - Occurs when the ball passes beyond a paddle's x-coordinate.
+   - The opposing player's score is incremented.
+   - The ball is reset to the center of the play area.
+
+### Error Handling and Disconnections
+
+- The server monitors for disconnections and removes players from the game as necessary.
+- If a player disconnects, the game is either terminated or waits for a new player, depending on the implementation.
+
+This architecture allows for a responsive, real-time multiplayer experience while optimizing network usage through efficient state synchronization techniques.
+
+
+
+## File Structure
+   ```
+   pong-final/
+   │
+   ├── server/
+   │   ├── server.js
+   │   ├── package.json
+   │   ├── package-lock.json
+   │   ├── node_modules/
+   │   ├── models/
+   │   │   └── GameModel.js
+   │   └── controllers/
+   │       └── GameController.js
+   │
+   ├── public/
+   │   ├── index.html
+   │   ├── css/
+   │   │   └── styles.css
+   │   └── js/
+   │       ├── main.js
+   │       ├── models/
+   │       │   └── GameModel.js
+   │       ├── views/
+   │       │   └── GameView.js
+   │       └── controllers/
+   │           └── GameController.js
+   │
+   └── README.md
+   ```
 
 
 
