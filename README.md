@@ -16,7 +16,6 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 - [File Structure](#file-structure)
 - [How It Works](#how-it-works)
 - [Contributing](#contributing)
-- [License](#license)
 
 
 
