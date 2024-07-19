@@ -3,8 +3,14 @@
 A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HTML5 Canvas. The task is simple. Guard your wall! Use your mouse (desktop) or touch (phone) to control the paddle and bounce the ball back before it hits the wall. 
 
 <div style="display: flex; align-items: flex-start;">
-  <img src="https://github.com/user-attachments/assets/5177da34-d52c-4cf3-b725-ede378cf8e51" style="height: 400px; width: auto; margin-right: 10px;" alt="Landscape Image">
-  <img src="https://github.com/user-attachments/assets/b6ff1d56-55d9-4c10-a8be-6acdc052889b" style="height: 400px; width: auto;" alt="Portrait Image">
+  <figure style="margin: 0; padding: 0;">
+    <img src="https://github.com/user-attachments/assets/5177da34-d52c-4cf3-b725-ede378cf8e51" style="height: 400px; width: auto; margin-right: 10px;" alt="Landscape Image">
+    <figcaption style="text-align: center;">Desktop</figcaption>
+  </figure>
+  <figure style="margin: 0; padding: 0;">
+    <img src="https://github.com/user-attachments/assets/b6ff1d56-55d9-4c10-a8be-6acdc052889b" style="height: 400px; width: auto;" alt="Portrait Image">
+    <figcaption style="text-align: center;">Mobile</figcaption>
+  </figure>
 </div>
 
 
