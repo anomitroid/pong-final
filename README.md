@@ -25,6 +25,7 @@ A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HT
 - Client-side prediction for smooth gameplay
 - Full and delta state updates for optimized network usage
 
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -38,6 +39,7 @@ You can check your current versions by running:
 node --version
 npm --version
 ```
+
 
 ## Installation
 
@@ -83,6 +85,7 @@ npm --version
    ```
 6. Install the required dependencies: (`npm init -y` followed by `npm install`)
 7. Inside `server` you should find a `node-modules` directory.
+
    
 ### If you want to create your own files instead of running the files in this project, follow the following steps:
 
@@ -161,6 +164,7 @@ npm --version
 19. After this command, your final file structure should be exactly similar to `pong-final` with just 1 directory extra inside `server-side` in `your-project`. This is the `node-modules` 
     directory.
 
+
 ## Usage
 
 To start the game server:
@@ -199,6 +203,7 @@ To start the game server:
 
 16. Enjoy!
 
+
 ## Game Rules
 
 1. Two players join a game room.
@@ -220,8 +225,8 @@ To start the game server:
 #### Paddle Control
 
 - Move your paddle up and down to hit the ball.
-- On desktop: Use your mouse to control the paddle.
-- On mobile: Slide your finger up and down on the screen.
+- On desktop: Use your mouse to control the paddle. Make sure your mouse is inside the canvas (the box) in order to control the paddle.
+- On mobile: Slide your finger up and down on the screen. Make sure you slide your finger inside the canvas (the box) to control the paddle.
 - Paddles are 10 pixels wide and 100 pixels tall.
 
 #### Ball Movement
@@ -237,8 +242,8 @@ To start the game server:
 
 #### Paddle-Ball Interaction
 
-- Left paddle: Ball bounces when x <= 20 and x >= 10
-- Right paddle: Ball bounces when x >= 780 and x <= 790
+- Left paddle: Ball bounces when `x <= 20` and `x >= 10`
+- Right paddle: Ball bounces when `x >= 780` and `x <= 790`
 - The ball changes horizontal direction when it hits a paddle.
 
 ### Game States
@@ -248,7 +253,7 @@ To start the game server:
 
 ### Technical Details
 
-- Game updates at 120 ticks per second.
+- Game updates at 120 ticks per second (120 FPS).
 - Client-side prediction is used for smooth gameplay.
 - Both full state and delta updates are sent to clients.
 
@@ -262,5 +267,78 @@ To start the game server:
 - If a player disconnects, the game stops and returns to the 'waiting' state.
 
 Remember, positioning your paddle correctly is key to success. Good luck, and enjoy the game!
+
+
+## Technologies Used
+
+This multiplayer Pong game leverages a variety of modern web technologies to create a real-time, interactive gaming experience. Here's an overview of the key technologies and libraries used:
+
+### Backend
+
+#### Node.js
+- **Version**: 14.0.0 or higher
+- **Purpose**: Server-side JavaScript runtime
+- **Usage**: Powers the game server and handles real-time communication
+
+#### Express.js
+- **Purpose**: Web application framework for Node.js
+- **Usage**: Handles HTTP requests and serves static files
+
+#### Socket.IO
+- **Purpose**: Real-time bidirectional event-based communication
+- **Usage**: Manages WebSocket connections for real-time game updates
+
+#### UUID
+- **Purpose**: Generates unique identifiers
+- **Usage**: Creates unique room IDs for game sessions
+
+### Frontend
+
+#### HTML5
+- **Purpose**: Markup language for structuring the web page
+- **Usage**: Provides the basic structure of the game interface
+
+#### CSS3
+- **Purpose**: Styling language for web pages
+- **Usage**: Defines the layout and appearance of the game interface
+
+#### JavaScript (ES6+)
+- **Purpose**: Programming language for client-side logic
+- **Usage**: Implements game logic, user input handling, and rendering
+
+#### HTML5 Canvas
+- **Purpose**: Drawing API for JavaScript
+- **Usage**: Renders the game graphics in real-time
+
+### Development Tools
+
+#### npm (Node Package Manager)
+- **Version**: 6.0.0 or higher
+- **Purpose**: Package manager for JavaScript
+- **Usage**: Manages project dependencies
+
+### Architecture
+
+#### Model-View-Controller (MVC)
+- **Purpose**: Architectural pattern
+- **Usage**: Organizes code structure for both client and server
+
+### Networking
+
+#### WebSockets (via Socket.IO)
+- **Purpose**: Full-duplex communication channels over a single TCP connection
+- **Usage**: Enables real-time, bidirectional communication between client and server
+
+#### Delta Updates
+- **Purpose**: Optimization technique
+- **Usage**: Sends only changed game state data to reduce network load
+
+### Additional Notes
+
+- The game uses a client-side prediction technique to ensure smooth gameplay.
+- Both full state and delta updates are implemented for efficient state synchronization.
+- The server runs a game loop at 120 ticks per second for precise game mechanics.
+
+This tech stack allows for a responsive, real-time multiplayer experience while maintaining efficiency in data transfer and processing.
 
 
