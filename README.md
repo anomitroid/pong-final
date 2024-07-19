@@ -205,7 +205,8 @@ To start the game server:
 14. The game will start.
 15. Players will see something like this (this is a game being played on the same device in different windows):
     
-    ![image](https://github.com/user-attachments/assets/70f042c5-e34b-4ec3-85fd-86d50924324f)
+    ![image](https://github.com/user-attachments/assets/f4a827a3-56a8-495c-b1b0-63d3aad17592)
+
 
 16. Enjoy!
 
@@ -426,7 +427,7 @@ The Multiplayer Pong game is built on a client-server architecture using Node.js
 ### Game Loop
 
 1. **Server-Side**
-   - Runs at 120 ticks per second.
+   - Runs at 120 FPS.
    - Updates ball position and checks for collisions.
    - Processes any pending player inputs.
    - Sends state updates to clients.
