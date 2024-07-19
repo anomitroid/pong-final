@@ -134,14 +134,26 @@ npm --version
     ```bash
     mkdir client-side server-side
     ```
-10. Initialise a `server.js` file inside the `server-side` directory.
-11. Paste the code from the file of the same name in this project in that file.
-12. You can do the same with the other files or you can move the files from the cloned directory (`pong-final`) to this directory.
-13. If you want to move the other directories from this project to your own project, navigate to the pong-final directory. 
+11. Initialise a `server.js` file inside the `server-side` directory.
+12. Paste the code from the file of the same name in this project in that file.
+13. You can do the same with the other files or you can move the files from the cloned directory (`pong-final`) to this directory.
+14. If you want to move the other directories from this project to your own project, navigate to the pong-final directory. 
     ```bash
     mv public ../your-directory/
     mv server/controllers server/models ../your-directory/server
     ```
     (On Windows, use `move` instead of `mv`)
-14. Check if the structure inside `your-project` looks identical to `pong-final`.
+15. Check if the structure inside `your-project` looks identical to `pong-final`. The `client-side` should look identical to `public`.
+16. If you followed the `mv` command as above, you will find 2 files extra in `server` which you will not find in `server-side`. If you copy pasted every file, then these 2 files will be         present in `server-side` as well. These 2 files are `package.json` and `package-lock.json`.
+17. If you have these 2 files, install the dependencies:
+    ```bash
+    npm install
+    ```
+18. If you do not have these files, do the following:
+    ```bash
+    npm init -y
+    npm install express socket.io uuid
+    ```
+19. After this command, your final file structure should be exactly similar to `pong-final` with just 1 directory extra inside `server-side` in `your-project`. This is the `node-modules` 
+    directory.
     
